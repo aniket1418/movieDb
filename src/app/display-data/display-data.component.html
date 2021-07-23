@@ -1,0 +1,90 @@
+<mat-toolbar color="primary">
+  <span class="spacer">{{ movieInfo.Title }}</span>
+  <ng-content select="[right]"></ng-content>
+  <button mat-icon-button class="close-button" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="image-section">
+  <img src="{{ movieInfo.Poster }}" alt="" srcset="" />
+</div>
+
+<div class="description">
+  <form
+    class="form"
+    [formGroup]="movieForm"
+    (ngSubmit)="onSubmit()"
+    name="movieForm"
+  >
+    <div class="form-group">
+      <!-- <input
+          type="text"
+          formControlName="Year"
+          placeholder="Movie Year"
+          class="form-control"
+          name="Year"
+        /> -->
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Movie Year</mat-label>
+        <input
+          matInput
+          placeholder="Year"
+          value=""
+          name="Year"
+          class="form-control"
+          formControlName="Year"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <!-- <input
+          type="text"
+          formControlName="Genre"
+          placeholder="Genre "
+          class="form-control"
+          name="Genre"
+        /> -->
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Genre</mat-label>
+        <input
+          matInput
+          placeholder="Actors"
+          value=""
+          name="Genre"
+          class="form-control"
+          formControlName="Genre"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <!-- <input
+          type="text"
+          formControlName="Actors"
+          placeholder="Actors"
+          class="form-control"
+          name="Actors"
+        /> -->
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Actors</mat-label>
+        <input
+          matInput
+          placeholder="Actors"
+          value=""
+          name="Actors"
+          class="form-control"
+          formControlName="Actors"
+        />
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="save-button">Save</button>
+      <button type="submit" class="reset-button" (click)="onReset()">
+        Reset
+      </button>
+    </div>
+  </form>
+</div>
